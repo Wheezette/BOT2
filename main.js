@@ -660,9 +660,9 @@ bot.on("message", async message => {
 
         let sEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setTitle('Configuration set!')
-        .setDescription(`The server prefix has been set to: ${args[0]}`)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Changed by ${message.author.tag}.`)
+        .setTitle('Zapisano!')
+        .setDescription(`Prefix dla serwera został zmieniony na: ${args[0]}`)
+        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Zmieniono przez ${message.author.tag}.`)
 
         message.channel.send(sEmbed);
     }
@@ -687,9 +687,9 @@ bot.on("message", async message => {
 
         let sEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setTitle('Configuration set!')
-        .setDescription(`Suggestion channel has been set to: ${args[0]}`)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Changed by ${message.author.tag}.`)
+        .setTitle('Zapisano!')
+        .setDescription(`Kanał sugestii został ustawiony na: ${args[0]}`)
+        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Zmieniono przez ${message.author.tag}.`)
 
         message.channel.send(sEmbed);
     }
