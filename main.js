@@ -149,7 +149,7 @@ bot.on("message", async message => {
         message.channel.send(sayMessage);
     }
 
-    if(cmd === `<@458569537286176768>`){
+    if(cmd === `<@456018252158730250>`){
         message.channel.send(`[**?**] Czego chcesz? Jeśli chodzi o mój prefix, proszę.. Oto on: ` + "`" + `${prefix}` + "`");
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has mention the bot on the **${message.guild.name}**(**${message.guild.id}**) server.`);
