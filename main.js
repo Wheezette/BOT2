@@ -476,7 +476,7 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * huglinks.length));
         let hugEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setTitle(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} przytulił(a) ${aUser.tag}.`)
+        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} przytulił(a) ${aUser.tag}.`)
         .setImage(huglinks[math])
 
         if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz przytulić?`);
@@ -490,7 +490,7 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * kisslinks.length));
         let kissEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setTitle(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pocałował(a) ${aUser.tag}.`)
+        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pocałował(a) ${aUser.tag}.`)
         .setImage(kisslinks[math])
 
         if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz pocałować?`);
@@ -505,7 +505,7 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * patlinks.length));
         let patEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setTitle(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} poklepał(a) ${aUser.tag}.`)
+        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} poklepał(a) ${aUser.tag}.`)
         .setImage(patlinks[math])
 
         if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz poklepać?`);
