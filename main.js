@@ -693,6 +693,15 @@ bot.on("message", async message => {
 
         message.channel.send(sEmbed);
     }
+    
+    if(cmd === `${prefix}partnere`){
+        const pEmbed = new Discord.RichEmbed()
+        .addField("PARTNER #1", ":hibiscus: Interesujesz się Azją?\n:rice_ball: lub azjatycką kuchnią?\n:cherry_blossom: Lubisz anime, k-pop, koreańskie dramy, chińskie seriale czy japońskie reality show?\n:dagger: Chcesz popełnić Seppuku?\n:dango: Twój dziadek walczył w Wietnamie?\n:shinto_shrine: Fascynuje Cie Singapur, a może po prostu jesteś fanem chińskiej architektury?\n \n*Jeśli choć trochę interesujesz się dalekim wschodem, zapraszamy na AsianCulture!!!*\n:flag_jp: :flag_kr: :flag_kp: :flag_cn: :flag_vn: :flag_ph: :flag_my: :flag_sg: :flag_th: :flag_la: :flag_kh: :flag_tw: :flag_id: :flag_mm:")
+        .addField("Link:", "https://discord.gg/VKNxGEE")
+        .setImage("https://cdn.discordapp.com/attachments/460669749148516355/461072328781070337/AsianCultureBanner-1-1.png")
+        .setFooter("Partner: Egzoster#5485")
+        message.channel.send(pEmbed);
+    }
 
     if(cmd === `${prefix}settings`){
         if(!args[0]) return message.channel.send("```List of settings for the server: \n[1] prefix \n[2] suggestChannel```" + `If you want to set, enter ` + "`" + `${prefix}settings <->` + "`.")
