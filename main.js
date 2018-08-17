@@ -158,7 +158,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `<@456018252158730250>`){
-        message.channel.send(`${bot.emojis.find(`name`, 'question')} O co chodzi? Jeśli o mój prefix, proszę... oto on: ` + "`" + `${prefix}` + "`");
+        message.channel.send(`${bot.emojis.find(`name`, 'question')} Tak? Mój prefix to: ` + "`" + `${prefix}` + "`");
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has mention the bot on the **${message.guild.name}**(**${message.guild.id}**) server.`);
     }
@@ -195,12 +195,12 @@ bot.on("message", async message => {
         //message.channel.send(embed);
     //}
 
-    if(cmd === `${prefix}profile`){
+    if(cmd === `${prefix}profile` || cmd === `${prefix}userinfo`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         let aUser = message.mentions.users.first() || message.author;
         const userinfo = new Discord.RichEmbed()
         .setColor("FFA07A")
-        .setAuthor(`${aUser.username}'s profile`, `https://cdn.discordapp.com/emojis/472480341299298304.png?v=1`)
+        .setAuthor(`Profil ${aUser.username}`, `https://cdn.discordapp.com/emojis/472480341299298304.png?v=1`)
         .setThumbnail(aUser.displayAvatarURL)
         .addField("ID:", `${aUser.id}`)
         .addField("Pseudonim:", `${aUser.nickname ? aUser.nickname : "None"}`)
@@ -213,7 +213,7 @@ bot.on("message", async message => {
         message.channel.send(userinfo);
     }
 
-    if(cmd === `${prefix}server` || cmd === `${prefix}server-info` || cmd === `${prefix}serverinfo`){
+    if(cmd === `${prefix}server` || cmd === `${prefix}serverinfo`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
 
         let sicon = message.guild.iconURL;
@@ -269,8 +269,8 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}eval`){
         //if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if(message.author.id !== '396284197389729793') return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `developer` permissions, check them using `cb!permissions`.")
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')}` + " Please, give me the code. If you do not know how to use the command, use `cb!help eval`.")
+        if(message.author.id !== '396284197389729793') return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " Nie masz uprawnień do tej komendy, wymagana ranga: `Założyciel(ka)`.")
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')}` + " Proszę, abyś podał(a) kod, który chcesz evalować. Bez niego nie da rady ;(.")
         let result = eval(args.join(" ")).toString()
           let embed = new Discord.RichEmbed()
           //.setTitle("Eval")
@@ -286,7 +286,7 @@ bot.on("message", async message => {
           let nowaNazwa = args.join(" ");
           bot.user.setUsername(nowaNazwa);
           console.log(`Nick został zmieniony.`);
-          message.channel.send(`${bot.emojis.find(`name`, 'success')} The name of the bot has been changed to: **${nowaNazwa}**.`);
+          message.channel.send(`${bot.emojis.find(`name`, 'success')} Nazwa bota została zmieniona na: **${nowaNazwa}**.`);
         }
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has used the **botsetname** command on the **${message.guild.name}**(**${message.guild.id}**) server.`);
@@ -297,7 +297,7 @@ bot.on("message", async message => {
           let nowyAvatar = args.join(" ");
           bot.user.setAvatar(nowyAvatar);
           console.log(`Avatar został zmieniony.`);
-          message.channel.send(`${bot.emojis.find(`name`, 'success')} The avatar of the bot has been changed to: **${nowyAvatar}**.`);
+          message.channel.send(`${bot.emojis.find(`name`, 'success')} Avatar bota został zmieniony na: **${nowyAvatar}**.`);
         }
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has used the **botsetavatar** command on the **${message.guild.name}**(**${message.guild.id}**) server.`);
@@ -315,7 +315,7 @@ bot.on("message", async message => {
         .addField('Zdjęcia (1):', '`cat`')
         .addField('Informacje (2):', '`serverinfo`, `userinfo`')
         .addField('Inne (1):', '`suggest`')
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Used by ${message.author.tag}.`)
+        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`)
         if(!args[0]) return message.channel.send(helpmsg);
         if(args[0] == 'invite') return message.channel.send('Help with the **INVITE** command. \n```Usage: ' + `${prefix}invite` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
         if(args[0] == 'info') return message.channel.send('Help with the **INFO** command. \n```Usage: ' + `${prefix}info` + '``` \n**Aliases:** None \n**Description:** It will display information about the bot.');
@@ -387,21 +387,16 @@ bot.on("message", async message => {
       
     }
 
-    if(cmd === `${prefix}serverlist`){
-        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        message.channel.send(`${bot.emojis.find(`name`, 'alert')} ***__COMMAND DISABLED__*** ${bot.emojis.find(`name`, 'alert')}`);
-    }
-
-    if(cmd === `${prefix}permissions`){
-        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if (message.author.id === '396284197389729793') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Creator of CookieBOT` (5)");
-        if (message.author.id === '372026600989917195') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Global Support` (4)")
-        if (message.guild.owner) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Owner` (3)");
-        if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Admin` (2)");
+   // if(cmd === `${prefix}permissions`){
+      //  if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
+      //  if (message.author.id === '396284197389729793') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Creator of CookieBOT` (5)");
+       // if (message.author.id === '372026600989917195') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Global Support` (4)")
+        //if (message.guild.owner) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Owner` (3)");
+       // if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Admin` (2)");
         //if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Manage Server` (1)");
 
-        message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `User` (0)");
-    }
+        //message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `User` (0)");
+    //}
 
     if(cmd === `${prefix}removerole`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
@@ -464,7 +459,7 @@ bot.on("message", async message => {
         //.setThumbnail(aUser.displayAvatarURL)
         .setDescription(`${bot.emojis.find(`name`, 'user')} Avatar ${aUser.username}:`)
         .setImage(aUser.displayAvatarURL)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Used by ${message.author.tag}.`);
+        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`);
         message.channel.send(avEmbed);
         return;
     }
@@ -505,11 +500,16 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * patlinks.length));
         let patEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} poklepał(a) ${aUser.tag}.`)
+        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pogłaskał(a) ${aUser.tag}.`)
+        .setImage(patlinks[math])
+        
+        let patEmbedd = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pogłaskał(a) samego siebie!`)
         .setImage(patlinks[math])
 
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz poklepać?`);
-        if(args[0] == `<@${message.author.id}>`) return message.channel.send('Samego siebie nie poklepiesz!')
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz pogłaskać?`);
+        if(args[0] == `<@${message.author.id}>`) return message.channel.send(patEmbedd)
         message.channel.send(patEmbed);
     }
 
@@ -520,9 +520,9 @@ bot.on("message", async message => {
         //let ankieta = await message.channel.send(ankietaEmbed);
         let ankietaEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setAuthor(`New survey`, `https://cdn.discordapp.com/emojis/472694503229358080.png?v=1`)
+        .setAuthor(`NOWA ANKIETA`, `https://cdn.discordapp.com/emojis/472694503229358080.png?v=1`)
         .setDescription(ankietaMessage)
-        .setFooter(`The survey was created by ${message.author.tag}`);
+        .setFooter(`Ankieta stworzona przez ${message.author.tag}`);
     
         let ankieta = await message.channel.send(ankietaEmbed);
         ankieta.react(bot.emojis.find(`name`, 'success'));
@@ -531,18 +531,11 @@ bot.on("message", async message => {
         return;
     }
 
-    if (cmd.includes('Japierdole')) {
-        //if (message.author.id === '396284197389729793') return;
-        message.delete();
-        var lol = await message.reply('Napisane slowo zostalo zablokowane! Slowo: ```Slowo wyslane w prywatnych wiadomosciach```')
-        lol.delete(10000)
-    }
-
     if(cmd === `${prefix}reverse`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if(!args[0]) return message.channel.send(':x: You must enter some text!');
-        if (args[0].includes('enoyreve@')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} You will not use a bot for this purpose! You are not a good user!`);
-        if (args[0].includes('ereh@')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} You will not use a bot for this purpose! You are not a good user!`);
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Musisz podać tekst!`);
+        if (args[0].includes('enoyreve@')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Nie użyjesz do tego bota, lol.`);
+        if (args[0].includes('ereh@')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Nie użyjesz do tego bota, lol.`);
     
         function reverseString(str) {
             return str.split("").reverse().join("");
@@ -550,9 +543,9 @@ bot.on("message", async message => {
         let sreverse = reverseString(args.join(' '))
         //if(sreverse === '@here' || sreverse === '@everyone' || sreverse === `https://discord.gg/${invite.code}`) return message.channel.send("Nie możesz tego odwrócić!")
         if(args[0] === sreverse) {
-        sreverse = `${args.join(' ')} [it comes out the same ;(]`
+        sreverse = `${args.join(' ')} [wyszło na to samo ;(]`
         }
-        message.channel.send(`${bot.emojis.find(`name`, 'repeat')} Inverted text: **${sreverse}**`);
+        message.channel.send(`${bot.emojis.find(`name`, 'repeat')} Odwrócony tekst: **${sreverse}**`);
     }
 
     if(cmd === `${prefix}cat`){
@@ -561,7 +554,7 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * catlinks.length));
         let catEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .addField(`${bot.emojis.find(`name`, 'cat')} Random cat`, `Here is one of my random cats:`)
+        .addField(`${bot.emojis.find(`name`, 'cat')} Randomowy kot`, `Tutaj jest jeden z moich kotów:`)
         .setImage(catlinks[math])
         .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | ${message.author.tag}`);
     
@@ -580,7 +573,7 @@ bot.on("message", async message => {
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         //if(!args[2]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Please, give me the full question!`);
         if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Ahh... You did not give a question, can I know why?`);
-        let replies = ["Yes of course...", "Sorry but no...", "How can I know that?", "You can ask later?", "Mmm... No."];
+        let replies = ["Tak, oczywiście", "Przepraszam, nie", "Skąd mam to wiedzieć?", "Możesz zapytać później?", "Hmm... Nie."];
     
         let result = Math.floor((Math.random() * replies.length));
         let question = args.slice(0).join(" ");
@@ -590,7 +583,7 @@ bot.on("message", async message => {
         .setColor("RANDOM")
         .setDescription(question)
         //.addField("Pytanie", question)
-        .addField("Answer:", replies[result])
+        .addField("Odpowiedź:", replies[result])
         .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | ${message.author.tag}`);
     
         message.channel.send(ballembed);
@@ -621,8 +614,8 @@ bot.on("message", async message => {
           case 2:
           odp2 = b;
         }
-        let messagechoose = await message.channel.send(`${bot.emojis.find(`name`, 'thinke')} Hmm...`)
-        messagechoose.edit(`${bot.emojis.find(`name`, 'chat')} So, I choose: **${odp2}**`)
+        let messagechoose = await message.channel.send(`${bot.emojis.find(`name`, 'thinke')} Myślę...`)
+        messagechoose.edit(`${bot.emojis.find(`name`, 'chat')} Wybieram: **${odp2}**`)
     }
 
     if(cmd === `${prefix}clear`){
@@ -633,7 +626,7 @@ bot.on("message", async message => {
         message.channel.fetchMessages({
           limit: messagecount
         }).then(messages => message.channel.bulkDelete(messages));
-        let purgeSuccessMessage = await message.channel.send(`${bot.emojis.find(`name`, 'success')} As you wish, I cleaned the **${messagecount}** messages!`);
+        let purgeSuccessMessage = await message.channel.send(`${bot.emojis.find(`name`, 'success')} Okej! Wyczyściłem **${messagecount}** wiadomości na tym kanale!`);
         purgeSuccessMessage.delete(10000);
     }
 
@@ -701,13 +694,13 @@ bot.on("message", async message => {
     if(cmd === `${prefix}suggest`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         let suggestContent = args.join(" ");
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} What is your suggestion? Because from what I see it is nothing.`)
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Czy chcesz coś zaproponować? Jeśli tak to podaj treść propozycji!`)
         const suggestEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(suggestContent)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Suggestion writed by ${message.author.tag}.`);
+        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Suggestia napisana przez ${message.author.tag}.`);
         message.guild.channels.find(`name`, `${suggestChannel}`).send(suggestEmbed);
-        message.channel.send(`${bot.emojis.find(`name`, 'success')} Suggestion has been successfully sent!`)
+        message.channel.send(`${bot.emojis.find(`name`, 'success')} Propozycja została wysłana!`)
     }
 
     if(message.author.id === "396284197389729793"){
@@ -755,9 +748,9 @@ bot.on("message", async message => {
     if(cmd === `${prefix}warn`){
         if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_MEMBERS` permissions.");
         //if (args[0] == `${message.author.bot}`) return;
-        if (args[0] == `${message.author}`) return message.channel.send(`${bot.emojis.find(`name`, 'error')} You can not give yourself a warn!`)
+        if (args[0] == `${message.author}`) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Nie możesz sobie dać warna, no co ty.`)
         let wUser = message.mentions.users.first();
-        if (!wUser) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Is this user exists? Because I can not find him!`);
+        if (!wUser) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Ten użytkownik istnieje? Wygląda na to, że nie.`);
         const reason = args.join(" ").slice(22);
 
         if (!warns[wUser.id]) {
