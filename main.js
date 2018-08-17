@@ -64,6 +64,12 @@ bot.on("message", async message => {
     let msg = message.content.startsWith;
     let args = messageArray.slice(1);
 
+    
+    if(cmd === `${prefix}testy123`){
+        let wlascicielRole = message.guild.roles.get("455426439433551883");
+        if(message.member.roles.has(wlascicielRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Wlasciciel`.");
+    }
+    
     if(cmd === `${prefix}bingo`){
         let y = Math.floor(Math.random() * (Math.floor(75) - Math.ceil(1) + 1)) + Math.ceil(1);
         let x = null;
