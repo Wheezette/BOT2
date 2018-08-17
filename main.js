@@ -395,6 +395,27 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}permissions`){
+        //let myRole = message.guild.roles.find("name", "Moderators");
+        let wlascicielRole = message.guild.roles.find("name", "👑Właściciele");
+        let stAdminRole = message.guild.roles.find("name", "🔐St. Administrator");
+        let adminRole = message.guild.roles.find("name", "🔏Administrator");
+        let mlAdminRole = message.guild.roles.find("name", "🔒Młodszy Admin");
+        let modRole = message.guild.roles.find("name", "🔓Moderator");
+        let mlModRole = message.guild.roles.find("name", "🔑Młodszy Moderator");
+        let helperRole = message.guild.roles.find("name", "🔎Pomocnik(Helper)");
+        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
+        if(message.member.roles.has(wlascicielRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
+        if(message.member.roles.has(stAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
+        if(message.member.roles.has(adminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
+        if(message.member.roles.has(mlAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
+        if(message.member.roles.has(modRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
+        if(message.member.roles.has(mlModRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
+        
+        message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+    }
+    
+    if(cmd === `${prefix}upr`){
+        let myRole = message.guild.roles.find("name", "Moderators");
         let wlascicielRole = message.guild.roles.get("455426439433551883");
         let stAdminRole = message.guild.roles.get("455430899861815296");
         let adminRole = message.guild.roles.get("456851721570746370");
