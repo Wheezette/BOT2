@@ -825,6 +825,14 @@ bot.on("message", async message => {
         message.channel.send(pEmbed);
     }
     
+    if(cmd === `${prefix}partner`){
+        message.delete();
+        const embed = new Discord.RichEmbed()
+        //.setColor("#9b0090")
+        .setDescription("" + args.join(" "));
+        message.channel.send(embed);
+    }
+    
 });
 
 //let everyone = message.guild.roles.find(`name`, "@everyone");
