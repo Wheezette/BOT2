@@ -387,16 +387,24 @@ bot.on("message", async message => {
       
     }
 
-   // if(cmd === `${prefix}permissions`){
-      //  if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-      //  if (message.author.id === '396284197389729793') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Creator of CookieBOT` (5)");
-       // if (message.author.id === '372026600989917195') return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Global Support` (4)")
-        //if (message.guild.owner) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Owner` (3)");
-       // if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Server Admin` (2)");
-        //if (message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `Manage Server` (1)");
-
-        //message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Your permission level is: `User` (0)");
-    //}
+    if(cmd === `${prefix}permissions`){
+        let wlascicielRole = message.guild.roles.get("455426439433551883");
+        let stAdminRole = message.guild.roles.get("455430899861815296");
+        let adminRole = message.guild.roles.get("456851721570746370");
+        let mlAdminRole = message.guild.roles.get("456851799861624835");
+        let modRole = message.guild.roles.get("456851627740102657");
+        let mlModRole = message.guild.roles.get("457105125886918667");
+        let helperRole = message.guild.roles.get("456851889179590657");
+        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
+        if(message.member.roles.has(wlascicielRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
+        if(message.member.roles.has(stAdminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
+        if(message.member.roles.has(adminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
+        if(message.member.roles.has(mlAdminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
+        if(message.member.roles.has(modRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
+        if(message.member.roles.has(mlModRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
+        
+        message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+    }
 
     if(cmd === `${prefix}removerole`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
