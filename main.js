@@ -66,8 +66,9 @@ bot.on("message", async message => {
 
     
     if(cmd === `${prefix}testy123`){
-        let wlascicielRole = message.guild.roles.get("455426439433551883");
-        if(message.member.roles.has(wlascicielRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Wlasciciel`.");
+        let roleID = "479355217767301121";
+        let uzytkownicyZrola = message.guild.roles.get(roleID).members;
+        message.channel.send(`Liczba uzytkownicy z rolą Właściciele: ${uzytkownicyZrola.size}`);
     }
     
     if(cmd === `${prefix}bingo`){
