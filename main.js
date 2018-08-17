@@ -817,6 +817,14 @@ bot.on("message", async message => {
         message.channel.send(pEmbed);
     }
     
+    if(cmd === `${prefix}partnerwym`){
+        const pEmbed = new Discord.RichEmbed()
+        .addField("Wymagania na partnerstwo", `${bot.emojis.find(`name`, 'success')} Min. 50 osób na serwerze,\n${bot.emojis.find(`name`, 'success')} Serwer musi być aktywny,\n${bot.emojis.find(`name`, 'success')} Serwer musi mieć dobrą opinię,\n${bot.emojis.find(`name`, 'success')} Serwer nie może reklamować się w prywatnych wiadomościach, na kanałach na innych serwerach bez zezwolenia, oraz nalatywać na inne serwery w celu reklamy.`)
+        .addField("Zainteresowany(a) partnerstwem?", "Napisz do xCookieTM#9613!")
+        .setFooter("Jeśli nie spełniasz wymagań to nie pisz do nas w celu partnerstwa!")
+        message.channel.send(pEmbed);
+    }
+    
 });
 
 //let everyone = message.guild.roles.find(`name`, "@everyone");
