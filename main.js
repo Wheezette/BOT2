@@ -810,10 +810,10 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}partnere`){
         const pEmbed = new Discord.RichEmbed()
-        .addField("PARTNER #1", ":hibiscus: Interesujesz się Azją?\n:rice_ball: lub azjatycką kuchnią?\n:cherry_blossom: Lubisz anime, k-pop, koreańskie dramy, chińskie seriale czy japońskie reality show?\n:dagger: Chcesz popełnić Seppuku?\n:dango: Twój dziadek walczył w Wietnamie?\n:shinto_shrine: Fascynuje Cie Singapur, a może po prostu jesteś fanem chińskiej architektury?\n \n*Jeśli choć trochę interesujesz się dalekim wschodem, zapraszamy na AsianCulture!!!*\n:flag_jp: :flag_kr: :flag_kp: :flag_cn: :flag_vn: :flag_ph: :flag_my: :flag_sg: :flag_th: :flag_la: :flag_kh: :flag_tw: :flag_id: :flag_mm:")
-        .addField("Link:", "https://discord.gg/VKNxGEE")
-        .setImage("https://cdn.discordapp.com/attachments/460669749148516355/461072328781070337/AsianCultureBanner-1-1.png")
-        .setFooter("Partner: Egzoster#5485")
+        .addField("PARTNER #1", ":strawberry: **NSFW Poland** https://discord.gg/FSTwWE7\n:flag_pl: Pierwszy polski serwer o tematyce NSFW! (Jeden z 18 na Discord)\n:sunglasses:  Posiadamy miłą Administrację\n:military_medal:  Są u nas role dostosowane do każdego\n:peach:  Mnóstwo kontentu NSFW (obecnie jedynie pornografia)\n:crown:  Nasze Archiwa NSFW są największe na całym Discord!\n:busts_in_silhouette:  Na serwerze jest już ponad 100 osób\n:gay_pride_flag:  Posiadamy też sekcje dla osób LGBT+\n:robot:   Mamy SexBoty\n:star2:   Serwer funkcjonuje 24/7 i jest wielu aktywnych członków")
+        .addField("Link:", "https://discord.gg/FSTwWE7")
+        //.setImage("https://cdn.discordapp.com/attachments/460669749148516355/461072328781070337/AsianCultureBanner-1-1.png")
+        .setFooter("Partner: Szahoo#0099")
         message.channel.send(pEmbed);
     }
     
