@@ -64,11 +64,13 @@ bot.on("message", async message => {
     let msg = message.content.startsWith;
     let args = messageArray.slice(1);
 
-    
-    if(cmd === `${prefix}testy123`){
-        let roleID = "479355217767301121";
-        let uzytkownicyZrola = message.guild.roles.get(roleID).members;
-        message.channel.send(`Liczba uzytkownicy z rolą Właściciele: ${uzytkownicyZrola.size}`);
+    if (cmd === `${prefix}role12`){
+        let allowedRole = message.guild.roles.find("name", "👑Właściciele");
+        if (message.member.roles.has(allowedRole.id) {
+        message.reply('nie masz tej roli');
+        } else {
+        message.reply('Masz ta role');
+        }
     }
     
     if(cmd === `${prefix}bingo`){
