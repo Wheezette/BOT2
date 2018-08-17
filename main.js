@@ -810,7 +810,7 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}partnere`){
         const pEmbed = new Discord.RichEmbed()
-        .addField("PARTNER #1", ":strawberry: **NSFW Poland** https://discord.gg/FSTwWE7\n:flag_pl: Pierwszy polski serwer o tematyce NSFW! (Jeden z 18 na Discord)\n:sunglasses:  Posiadamy miłą Administrację\n:military_medal:  Są u nas role dostosowane do każdego\n:peach:  Mnóstwo kontentu NSFW (obecnie jedynie pornografia)\n:crown:  Nasze Archiwa NSFW są największe na całym Discord!\n:busts_in_silhouette:  Na serwerze jest już ponad 100 osób\n:gay_pride_flag:  Posiadamy też sekcje dla osób LGBT+\n:robot:   Mamy SexBoty\n:star2:   Serwer funkcjonuje 24/7 i jest wielu aktywnych członków")
+        .addField("PARTNER", ":strawberry: **NSFW Poland** https://discord.gg/FSTwWE7\n:flag_pl: Pierwszy polski serwer o tematyce NSFW! (Jeden z 18 na Discord)\n:sunglasses:  Posiadamy miłą Administrację\n:military_medal:  Są u nas role dostosowane do każdego\n:peach:  Mnóstwo kontentu NSFW (obecnie jedynie pornografia)\n:crown:  Nasze Archiwa NSFW są największe na całym Discord!\n:busts_in_silhouette:  Na serwerze jest już ponad 100 osób\n:gay_pride_flag:  Posiadamy też sekcje dla osób LGBT+\n:robot:   Mamy SexBoty\n:star2:   Serwer funkcjonuje 24/7 i jest wielu aktywnych członków")
         .addField("Link:", "https://discord.gg/FSTwWE7")
         //.setImage("https://cdn.discordapp.com/attachments/460669749148516355/461072328781070337/AsianCultureBanner-1-1.png")
         .setFooter("Partner: Szahoo#0099")
