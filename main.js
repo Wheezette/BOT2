@@ -27,13 +27,13 @@ bot.on("message", async message => {
 
     if(message.author.bot) return;
     //if(message.author.id === '396284197389729793') return message.channel.send('Masz bana w bocie');
-    if(message.channel.type === "dm") return;
+    //if(message.channel.type === "dm") return;
   
-    let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+    let prefixy = JSON.parse(fs.readFileSync("./prefixy.json", "utf8"));
 
-    if(!prefixes[message.guild.id]){
-        prefixes[message.guild.id] = {
-            prefixes: konfiguracja.prefix
+    if(!prefixy[message.guild.id]){
+        prefixy[message.guild.id] = {
+            prefixy: konfiguracja.prefix
         };
     }
 
@@ -57,20 +57,23 @@ bot.on("message", async message => {
 
     let suggestChannel = suggestChannels[message.guild.id].suggestChannels;
 
-    let prefix = prefixes[message.guild.id].prefixes;
+    let prefix = prefixy[message.guild.id].prefixy;
     //let prefix = konfiguracja.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let msg = message.content.startsWith;
     let args = messageArray.slice(1);
 
-    if (cmd === `${prefix}role12`){
-        let allowedRole = message.guild.roles.find("name", "👑Właściciele");
-        if (message.member.roles.has(allowedRole.id) {
-        message.reply('nie masz tej roli');
-        } else {
-        message.reply('Masz ta role');
-        }
+    if(cmd === `${prefix}partner`){
+        if (!message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send("Nie posiadasz wymaganych uprawnien!");
+        let embed = new Discord.RichEmbed()
+        .addField("PARTNERSTWO!", args.join(" ").split(" | ")[2])
+        .addField("Link:", args.join(" ").split(" | ")[1])
+        .setImage(args.join(" ").split(" | ")[2])
+        .setFooter(`Przedstawiciel(ka): ${args.join(" ").split(" | ")[0]}`, "https://discordapp.com/assets/e4d52f4d69d7bba67e5fd70ffe26b70d.svg")
+        if(!args[0]) return message.channel.send(`Poprawne użycie: ${prefix}partner <przedstawiciel>|<link>|<opis>|<zdjecie>.`)
+        message.channel.send(embed);
+    
     }
     
     if(cmd === `${prefix}bingo`){
@@ -101,7 +104,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}votekick`){
-        if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " Nie posiadasz wymaganych uprawnień, musisz mieć rangę `MODERATOR`.");
+        if (!message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔓Moderator` (lub wyższa) może użyć tej komendy.");
         const agree    = "✅";
         const disagree = "❎";
 
@@ -158,7 +161,8 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}say`){
         //message.delete();
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " Nie posiadasz wymaganych uprawnień, musisz mieć rangę `JRMODERATOR`.");
+        if (!message.member.roles.find(r => r.id === "457105125886918667")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔑Młodszy Moderator` (lub wyższa) może użyć tej komendy.");
+        //if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " Nie posiadasz wymaganych uprawnień, musisz mieć rangę `JRMODERATOR`.");
         if (args[0].includes('@everyone')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Przepraszam bardzo, w tym celu bota nie użyjesz!`);
         if (args[0].includes('@here')) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Przepraszam bardzo, w tym celu bota nie użyjesz!`);
         let sayMessage = args.join(" ");
@@ -349,6 +353,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}ban`){
+        if (!message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔓Moderator` (lub wyższa) może użyć tej komendy.");
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!bUser) return message.channel.send(":x: Musisz oznaczyć poprawnego uzytkownika!");
@@ -396,83 +401,77 @@ bot.on("message", async message => {
       
     }
 
-    if(cmd === `${prefix}permissions`){
+    //if(cmd === `${prefix}permissions`){
         //let myRole = message.guild.roles.find("name", "Moderators");
-        let wlascicielRole = message.guild.roles.find("name", "👑Właściciele");
-        let stAdminRole = message.guild.roles.find("name", "🔐St. Administrator");
-        let adminRole = message.guild.roles.find("name", "🔏Administrator");
-        let mlAdminRole = message.guild.roles.find("name", "🔒Młodszy Admin");
-        let modRole = message.guild.roles.find("name", "🔓Moderator");
-        let mlModRole = message.guild.roles.find("name", "🔑Młodszy Moderator");
-        let helperRole = message.guild.roles.find("name", "🔎Pomocnik(Helper)");
-        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if(message.member.roles.has(wlascicielRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
-        if(message.member.roles.has(stAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
-        if(message.member.roles.has(adminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
-        if(message.member.roles.has(mlAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
-        if(message.member.roles.has(modRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
-        if(message.member.roles.has(mlModRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
+        //let wlascicielRole = message.guild.roles.find("name", "👑Właściciele");
+        //let stAdminRole = message.guild.roles.find("name", "🔐St. Administrator");
+        //let adminRole = message.guild.roles.find("name", "🔏Administrator");
+        //let mlAdminRole = message.guild.roles.find("name", "🔒Młodszy Admin");
+        //let modRole = message.guild.roles.find("name", "🔓Moderator");
+        //let mlModRole = message.guild.roles.find("name", "🔑Młodszy Moderator");
+        //let helperRole = message.guild.roles.find("name", "🔎Pomocnik(Helper)");
+        //if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
+        //if(message.member.roles.has(wlascicielRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
+        //if(message.member.roles.has(stAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
+        //if(message.member.roles.has(adminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
+        //if(message.member.roles.has(mlAdminRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
+        //if(message.member.roles.has(modRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
+        //if(message.member.roles.has(mlModRole.id)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
         
-        message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
-    }
+        //message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+    ///}
     
     if(cmd === `${prefix}upr`){
-        let myRole = message.guild.roles.find("name", "Moderators");
-        let wlascicielRole = message.guild.roles.get("455426439433551883");
-        let stAdminRole = message.guild.roles.get("455430899861815296");
-        let adminRole = message.guild.roles.get("456851721570746370");
-        let mlAdminRole = message.guild.roles.get("456851799861624835");
-        let modRole = message.guild.roles.get("456851627740102657");
-        let mlModRole = message.guild.roles.get("457105125886918667");
-        let helperRole = message.guild.roles.get("456851889179590657");
-        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if(message.member.roles.has(wlascicielRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
-        if(message.member.roles.has(stAdminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
-        if(message.member.roles.has(adminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
-        if(message.member.roles.has(mlAdminRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
-        if(message.member.roles.has(modRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
-        if(message.member.roles.has(mlModRole)) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
+        if (message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
+        if (message.member.roles.find(r => r.id === "455430899861815296")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851799861624835")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
+        if (message.member.roles.find(r => r.id === "457105125886918667")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
         
-        message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+        if (message.member.roles.find(r => r.id === "456849366515187742")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+        if (message.member.roles.find(r => r.id === "454946768723902476")) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Wygląda na to, że nie posiadasz żadnej roli. Zgłoś się jak najszybciej do administratora.`)
     }
 
     if(cmd === `${prefix}removerole`){
+        if (!message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔏Administrator` (lub wyższa) może użyć tej komendy.");
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_MEMBERS` permissions.");
+        //if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_MEMBERS` permissions.");
         let rMember = message.guild.member(message.mentions.users.first()) ||  message.guild.members.get(args[0]);
-        if(!rMember) return message.channel.send(`${bot.emojis.find(`name`, 'error')} You must enter the correct user!`);
+        if(!rMember) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Podaj poprawnego użytkownika!`);
         let role = args.join(" ").slice(22);
-        if(!role) return message.channel.send(`${bot.emojis.find(`name`, 'error')} You must provide a role (give its name, it can not be a mention)`);
+        if(!role) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Musisz podać role, nie może to być oznaka roli.`);
         let gRole = message.guild.roles.find(`name`, role);
-        if(!gRole) return message.channel.send(`${bot.emojis.find(`name`, 'error')} The role you entered was not found.`);
+        if(!gRole) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Nie odnaleziono roli o tej nazwie, czy ona istnieje?`);
 
         if(!rMember.roles.has(gRole.id)) return message.reply('On nie ma tej roli.');
         await(rMember.removeRole(gRole.id));
 
         try{
-            await rMember.send(`${bot.emojis.find(`name`, 'alert')} You lost the role named **${gRole.name}** on the **${message.guild.name}** server!`)
-            await message.channel.send(`${bot.emojis.find(`name`, 'success')} You have remove **${gRole.name}** role for **<@${rMember.id}>** user!`);
+            await rMember.send(`${bot.emojis.find(`name`, 'alert')} Straciłeś(aś) rolę **${gRole.name}** na serwerze **${message.guild.name}**!`)
+            await message.channel.send(`${bot.emojis.find(`name`, 'success')} Ok, rola **${gRole.name}** została usunięta dla **<@${rMember.id}>**!`);
         }catch(error){
             console.log(error);
         }
     }
 
     if(cmd === `${prefix}addrole`){
+        if (!message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔏Administrator` (lub wyższa) może użyć tej komendy.");
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_MEMBERS` permissions.");
         let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-        if(!rMember) return message.channel.send(`${bot.emojis.find(`name`, 'error')} You must enter the correct user!`);
+        if(!rMember) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Musisz podać poprawnego użytkownika!`);
         let role = args.join(" ").slice(22);
         //if(!args[1]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} You must provide a role (give its name, it can not be a mention)`);
         let gRole = message.guild.roles.find(`name`, role);
-        if(!gRole) return message.channel.send(`${bot.emojis.find(`name`, 'error')} The role you entered was not found.`);
+        if(!gRole) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Rola, którą wybrałeś(aś) nie istnieje, pamiętaj o tym, że musisz ją podać bez oznaczenia.`);
 
         if(rMember.roles.has(gRole.id)) return;
         await(rMember.addRole(gRole.id));
 
         try{
-            rMember.send(`${bot.emojis.find(`name`, 'alert')} You have received a rank called **${gRole.name}** on the **${message.guild.name}** server!`)
-            message.channel.send(`${bot.emojis.find(`name`, 'success')} The role named **${gRole.name}** has been successfully assigned to the **<@${rMember.id}>** user!`)
+            rMember.send(`${bot.emojis.find(`name`, 'alert')} Hej! Otrzymałeś(aś) rolę **${gRole.name}** na serwerze **${message.guild.name}**!`)
+            message.channel.send(`${bot.emojis.find(`name`, 'success')} Rola o nazwie **${gRole.name}** została nadana dla użytkownika **<@${rMember.id}>**!`)
         }catch(error){
             console.log(error);
         }
@@ -552,6 +551,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}survey` || cmd === `${prefix}vote`){
+        if (!message.member.roles.find(r => r.id === "456851799861624835")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔒Młodszy Admin` (lub wyższa) może użyć tej komendy.");
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(":lock: You do not have sufficient permissions to create a survey.");
         const ankietaMessage = args.join(" ");
@@ -628,16 +628,6 @@ bot.on("message", async message => {
         return;
     }
 
-    if(cmd === `${prefix}profilei23289239829832983`){
-        if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
-        let aUser = message.mentions.users.first() || message.author;
-        const profileEmbed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .addField(`${bot.emojis.find(`name`, 'user')} ${aUser.username}'s profile`, `Username: ${aUser.username} \nDiscriminator: ${aUser.discriminator} \nGlobal points: 0 \nServer points: 0`)
-        message.channel.send(profileEmbed);
-    }
-
-
     if(cmd === `${prefix}choose`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         var odp = Math.floor(Math.random() *2) + 1
@@ -657,6 +647,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}clear`){
+        if (!message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔓Moderator` (lub wyższa) może użyć tej komendy.");
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_MESSAGES` permissions, check them using `cb!permissions`.");
     
@@ -679,13 +670,13 @@ bot.on("message", async message => {
         if(!message.member.hasPermission("MANAGE_SERVER")) return message.channel.send(`${bot.emojis.find(`name`, 'lock')}` + " You do not have sufficient permissions. You must have `MANAGE_SERVER` permissions.");
         if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'error')} An error occurred, apparently you did not enter a value. Use **${prefix}help setprefix** for help.`);
 
-        let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+        let prefixy = JSON.parse(fs.readFileSync("./prefixy.json", "utf8"));
 
-        prefixes[message.guild.id] = {
-            prefixes: args[0]
+        prefixy[message.guild.id] = {
+            prefixy: args[0]
         }
 
-        fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
+        fs.writeFile("./prefixy.json", JSON.stringify(prefixy), (err) => {
             if (err) console.error(err);
         });
 
@@ -839,34 +830,7 @@ bot.on("message", async message => {
         message.channel.send(warnsEmbed);
     }
     
-    if(cmd === `${prefix}partnere`){
-        const pEmbed = new Discord.RichEmbed()
-        .addField("PARTNER", ":strawberry: **NSFW Poland** https://discord.gg/FSTwWE7\n:flag_pl: Pierwszy polski serwer o tematyce NSFW! (Jeden z 18 na Discord)\n:sunglasses:  Posiadamy miłą Administrację\n:military_medal:  Są u nas role dostosowane do każdego\n:peach:  Mnóstwo kontentu NSFW (obecnie jedynie pornografia)\n:crown:  Nasze Archiwa NSFW są największe na całym Discord!\n:busts_in_silhouette:  Na serwerze jest już ponad 100 osób\n:gay_pride_flag:  Posiadamy też sekcje dla osób LGBT+\n:robot:   Mamy SexBoty\n:star2:   Serwer funkcjonuje 24/7 i jest wielu aktywnych członków")
-        .addField("Link:", "https://discord.gg/FSTwWE7")
-        //.setImage("https://cdn.discordapp.com/attachments/460669749148516355/461072328781070337/AsianCultureBanner-1-1.png")
-        .setFooter("Partner: Szahoo#0099")
-        message.channel.send(pEmbed);
-    }
-    
-    if(cmd === `${prefix}partnerwym`){
-        const pEmbed = new Discord.RichEmbed()
-        .addField("Wymagania na partnerstwo", `${bot.emojis.find(`name`, 'success')} Min. 50 osób na serwerze,\n${bot.emojis.find(`name`, 'success')} Serwer musi być aktywny,\n${bot.emojis.find(`name`, 'success')} Serwer musi mieć dobrą opinię,\n${bot.emojis.find(`name`, 'success')} Serwer nie może reklamować się w prywatnych wiadomościach, na kanałach na innych serwerach bez zezwolenia, oraz nalatywać na inne serwery w celu reklamy.`)
-        .addField("Zainteresowany(a) partnerstwem?", "Napisz do xCookieTM#9613!")
-        .setFooter("Jeśli nie spełniasz wymagań to nie pisz do nas w celu partnerstwa!")
-        message.channel.send(pEmbed);
-    }
-    
-    if(cmd === `${prefix}partner`){
-        message.delete();
-        const embed = new Discord.RichEmbed()
-        //.setColor("#9b0090")
-        .setDescription("" + args.join(" "));
-        message.channel.send(embed);
-    }
     
 });
-
-//let everyone = message.guild.roles.find(`name`, "@everyone");
-//if(args[0] == 'lock') return message.channel.overwritePermissions(everyone, { SEND_MESSAGES: false, ADD_REACTIONS: false }), message.channel.send(`${bot.emojis.find(`name`, 'success')} Okay, according to your wishes, I blocked this channel! Others can not write here.`);
 
 bot.login(process.env.TOKEN);
