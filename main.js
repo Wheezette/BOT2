@@ -66,6 +66,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}partner`){
         if (!message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send("Nie posiadasz wymaganych uprawnien!");
+
         let embed = new Discord.RichEmbed()
         .addField("PARTNERSTWO!", args.join(" ").split(" | ")[2])
         .addField("Link:", args.join(" ").split(" | ")[1])
@@ -90,6 +91,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}statsrefresh`){
+        if (!message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔏Administrator` (lub wyższa) może użyć tej komendy.");
         message.channel.send(`${bot.emojis.find(`name`, 'success')} Statystyki serwera **Cookie Community** zostały zaaktualizowane!`);
         bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
         bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
