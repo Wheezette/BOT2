@@ -510,10 +510,10 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * huglinks.length));
         let hugEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} przytulił(a) ${aUser.tag}.`)
+        .setAuthor(`Użytkownik ${message.author.tag} przytulił(a) ${aUser.tag}.`, "https://cdn.discordapp.com/emojis/472468044871106591.png?v=1")
         .setImage(huglinks[math])
 
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz przytulić?`);
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Oznacz osobę, którą chcesz przytulić.`);
         message.channel.send(hugEmbed);
     }
 
@@ -524,10 +524,10 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * kisslinks.length));
         let kissEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pocałował(a) ${aUser.tag}.`)
+        .setAuthor(`Użytkownik ${message.author.tag} pocałował(a) ${aUser.tag}.`, "https://cdn.discordapp.com/emojis/472468044871106591.png?v=1")
         .setImage(kisslinks[math])
 
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz pocałować?`);
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Oznacz osobę, którą chcesz pocałować.`);
         if(args[0] == `<@${message.author.id}>`) return message.channel.send('Samego siebie nie pocałujesz!')
         message.channel.send(kissEmbed);
     }
@@ -539,7 +539,7 @@ bot.on("message", async message => {
         let math = Math.floor((Math.random() * patlinks.length));
         let patEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pogłaskał(a) ${aUser.tag}.`)
+        .setAuthor(`Użytkownik ${message.author.tag} pogłaskał(a) ${aUser.tag}.`, "https://cdn.discordapp.com/emojis/472468044871106591.png?v=1")
         .setImage(patlinks[math])
         
         let patEmbedd = new Discord.RichEmbed()
@@ -547,7 +547,7 @@ bot.on("message", async message => {
         .setAuthor(`${bot.emojis.find(`name`, 'like1')} Użytkownik ${message.author.tag} pogłaskał(a) samego siebie!`)
         .setImage(patlinks[math])
 
-        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Kogo chcesz pogłaskać?`);
+        if(!args[0]) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Oznacz osobę, którą chcesz pogłaskać.`);
         if(args[0] == `<@${message.author.id}>`) return message.channel.send(patEmbedd)
         message.channel.send(patEmbed);
     }
