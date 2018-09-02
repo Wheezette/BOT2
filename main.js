@@ -171,7 +171,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `<@456018252158730250>`){
-        message.channel.send(`${bot.emojis.find(`name`, 'question')} Tak? Mój prefix to: ` + "`" + `${prefix}` + "`");
+        message.channel.send(`${bot.emojis.find(`name`, 'question')} Czego? Mój prefix to ` + "`" + `${prefix}` + "`");
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has mention the bot on the **${message.guild.name}**(**${message.guild.id}**) server.`);
     }
