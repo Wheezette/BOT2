@@ -18,9 +18,15 @@ bot.on('ready', () => {
 });
 
 bot.on("guildMemberRemove", member => {
-  
-    member.guild.channels.get("460664617996386304").setName(`✸ Użytkownicy: ${member.guild.memberCount}`);
-    member.guild.channels.channels.get("467380660189921280").setName(`✸ Botów: ${member.guild.members.filter(m => m.user.bot).size}`);
+    bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
+    bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
+    bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
+});
+
+bot.on("guildMemberAdd", member => {
+    bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
+    bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
+    bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
 });
 
 bot.on("message", async message => {
