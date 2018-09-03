@@ -233,12 +233,12 @@ bot.on("message", async message => {
         .setThumbnail(aUser.displayAvatarURL)
         .addField("ID:", `${aUser.id}`)
         .addField("Pseudonim:", `${aUser.nickname ? aUser.nickname : "None"}`)
-        .addField("Konto utworzone:", `${moment.utc(aUser.createdAt).format('dd, Do MM YYYY')}`)
-        .addField("Dołączył(a) do serwera:", `${moment.utc(aUser.joinedAt).format('dd, Do MM YYYY')}`)
+        .addField("Konto utworzone:", `${moment(aUser.createdAt).format('DD.MM.YYYY HH:mm:ss')}`)
+        .addField("Dołączył(a) do serwera:", `${moment(aUser.joinedAt).format('DD.MM.YYYY HH:mm:ss')}`)
         .addField("Czy jest botem:", `${aUser.bot}`)
         .addField("Status:", `${aUser.presence.status.replace("dnd", "Niedostępny")}`)
         .addField("Aktualna gra:", `${aUser.presence.game ? aUser.presence.game.name : 'Brak'}`)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`)
+        .setFooter(`${moment(message.createdAt).format('HH:mm:ss')} | Użyto przez ${message.author.tag}.`)
         message.channel.send(userinfo);
     }
 
