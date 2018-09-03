@@ -12,7 +12,7 @@ const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 //let suggestChannel = JSON.parse(fs.readFileSync('Storage/suggestChannel.json', 'utf8'));
 
 bot.on('ready', () => {
-    console.log(`The bot has been turned on! His name is ${bot.user.tag}. Prefix: "cb!". I jest na ${bot.guilds.size} serwerach!`);
+    console.log(`Bot został włączony, nosi nazwę ${bot.user.tag}. A jego prefix to: "cc!".`);
     bot.user.setStatus(`idle`);
     bot.user.setActivity(`Cookie Community`, {type: "WATCHING"});
 });
