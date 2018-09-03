@@ -84,6 +84,12 @@ bot.on("message", async message => {
     
     }
     
+    if(cmd === `${prefix}staty`){
+        let embed = new Discord.RichEmbed()
+        .setDescription(`**Użytkownicy:** ${message.guild.memberCount} (:spy: ${member.guild.members.filter(m => !m.user.bot).size} | ${member.guild.members.filter(m => m.user.bot).size} :robot:) \n**Osoby z administracji:** ${message.guild.roles.get("457821597227679745").members.size} \n**Ilość banów:** *- Wkrótce -* \n**Admini online:** *- Wkrótce -*`)
+        message.channel.send(embed);
+     }
+                        
     if(cmd === `${prefix}bingo`){
         let y = Math.floor(Math.random() * (Math.floor(75) - Math.ceil(1) + 1)) + Math.ceil(1);
         let x = null;
