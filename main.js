@@ -251,8 +251,8 @@ bot.on("message", async message => {
         .setAuthor(`${message.guild.name}`, `https://cdn.discordapp.com/emojis/473897310414176266.png?v=1`)
         .setThumbnail(sicon)
         //.addField("Name:", message.guild.name)
-        .addField("Serwer utworzony:", `${moment.utc(message.guild.createdAt).format('dd, Do MM YYYY')}`)
-        .addField("Dołączyłeś(aś):",`${moment.utc(message.author.joinedAt).format('dd, Do MM YYYY')}`)
+        .addField("Serwer utworzony:", `${moment(message.guild.createdAt).format('DD.MM.YYYY HH:mm:ss')}`)
+        .addField("Dołączyłeś(aś):",`${moment(message.author.createdAt).format('DD.MM.YYYY HH:mm:ss')}`)
         .addField("Liczba użytkoników:", message.guild.memberCount)
         .addField("Region:", `${message.guild.region.replace("eu-central", ":flag_eu: EU Central")}`)
         .addField("Kanały tekstowe:", message.guild.channels.findAll("type", "text").length)
@@ -260,7 +260,7 @@ bot.on("message", async message => {
         .addField("Liczba ról:", `${message.guild.roles.size}`)
         .addField("Emotki:", message.guild.emojis.size)
         .addField("Założyciel(ka):", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`);
+        .setFooter(`${moment(message.createdAt).format('HH:mm:ss')} | Użyto przez ${message.author.tag}.`);
     
         message.channel.send(serverembed);
     }
@@ -344,7 +344,7 @@ bot.on("message", async message => {
         .addField('Zdjęcia (1):', '`cat`')
         .addField('Informacje (2):', '`serverinfo`, `userinfo`')
         .addField('Inne (1):', '`suggest`')
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`)
+        .setFooter(`${moment(message.createdAt).format('HH:mm:ss')} | Użyto przez ${message.author.tag}.`)
         if(!args[0]) return message.channel.send(helpmsg);
         if(args[0] == 'invite') return message.channel.send('Help with the **INVITE** command. \n```Usage: ' + `${prefix}invite` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
         if(args[0] == 'info') return message.channel.send('Help with the **INFO** command. \n```Usage: ' + `${prefix}info` + '``` \n**Aliases:** None \n**Description:** It will display information about the bot.');
@@ -388,7 +388,7 @@ bot.on("message", async message => {
         //.addField("O godzinie", moment(message.createdAt).format("YYYY.MM.DD, HH:mm:ss"))
         .addField("Moderator:", message.author.tag)
         .addField("Powód:", bReason)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Zbanowany(a) na ${message.guild.name}.`)
+        .setFooter(`$${moment(message.createdAt).format('HH:mm:ss')} | Zbanowany(a) na ${message.guild.name}.`)
     
         let banChannel = message.guild.channels.find(`name`, "➕-bany");
         if(!banChannel) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} The '**modlogs**' channel does not exist, but the **${bUser}** user got the ban anyway!`);
@@ -512,7 +512,7 @@ bot.on("message", async message => {
         //.setThumbnail(aUser.displayAvatarURL)
         .setDescription(`${bot.emojis.find(`name`, 'user')} Avatar ${aUser.username}:`)
         .setImage(aUser.displayAvatarURL)
-        .setFooter(`${message.createdAt.getHours()}:${message.createdAt.getMinutes()} | Użyto przez ${message.author.tag}.`);
+        .setFooter(`${moment(message.createdAt).format('HH:mm:ss')} | Użyto przez ${message.author.tag}.`);
         message.channel.send(avEmbed);
         return;
     }
