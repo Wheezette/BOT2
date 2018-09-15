@@ -61,7 +61,7 @@ bot.on("ready", e => {
       console.log(statusrand);
     }
 
-  }, 1000);
+  }, 10000);
 });
 
 bot.on("guildMemberRemove", member => {
@@ -130,7 +130,7 @@ bot.on("message", async message => {
         message.channel.send(embed);
     
     }
-    
+ 
     if(cmd === `${prefix}staty`){
         let embed = new Discord.RichEmbed()
         .setDescription(`**Użytkownicy:** ${message.guild.memberCount} (:spy: ${member.guild.members.filter(m => !m.user.bot).size} | ${member.guild.members.filter(m => m.user.bot).size} :robot:) \n**Osoby z administracji:** ${message.guild.roles.get("457821597227679745").members.size} \n**Ilość banów:** *- Wkrótce -* \n**Admini online:** *- Wkrótce -*`)
