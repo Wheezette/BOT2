@@ -11,13 +11,13 @@ const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 //let userData = JSON.parse(fs.readFileSync('Storage/userData.json', `utf8`));
 //let suggestChannel = JSON.parse(fs.readFileSync('Storage/suggestChannel.json', 'utf8'));
 
-bot.on('ready', () => {
-    console.log(`Bot został włączony, nosi nazwę ${bot.user.tag}. A jego prefix to: "cc!".`);
-    bot.user.setStatus(`idle`);
-    bot.user.setActivity(`Cookie Community`, {type: "WATCHING"});
-});
+//bot.on('ready', () => {
+    //console.log(`Bot został włączony, nosi nazwę ${bot.user.tag}. A jego prefix to: "cc!".`);
+    //bot.user.setStatus(`idle`);
+    //bot.user.setActivity(`Cookie Community`, {type: "WATCHING"});
+//});
 
-client.on("ready", e => {
+bot.on("ready", e => {
   setInterval (function (){
     var statusrand  = Math.floor(Math.random() * 8 + 1);
     if (statusrand === 1) {
