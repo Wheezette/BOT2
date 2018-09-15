@@ -22,42 +22,42 @@ bot.on("ready", e => {
     var statusrand  = Math.floor(Math.random() * 8 + 1);
     if (statusrand === 1) {
       bot.user.setActivity(`Cookie Community`);   
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 2) {
       bot.user.setActivity(`😄 cc!help`);
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 3) {
       bot.user.setActivity(`❓ Pomóc w czymś?`);  
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 4) {
       bot.user.setActivity(`😈 Hej, co tam?`);  
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 5) {
       bot.user.setActivity(`Niebawem więcej!`);  
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 6) {
       bot.user.setActivity(`Zobacz #regulamin. `); 
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand); 
     }
     if (statusrand === 7) {
       bot.user.setActivity(`Rozmawiaj na #główny!`);  
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 8) {
       bot.user.setActivity(`cc!serverinfo`);  
-      bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
 
