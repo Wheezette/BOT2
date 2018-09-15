@@ -17,6 +17,45 @@ bot.on('ready', () => {
     bot.user.setActivity(`Cookie Community`, {type: "WATCHING"});
 });
 
+client.on("ready", e => {
+  setInterval (function (){
+    var statusrand  = Math.floor(Math.random() * 8 + 1);
+    if (statusrand === 1) {
+      bot.user.setActivity(`Cookie Community`);   
+      console.log(statusrand);
+    }
+    if (statusrand === 2) {
+      bot.user.setActivity(`😄 cc!help`);  
+      console.log(statusrand);
+    }
+    if (statusrand === 3) {
+      bot.user.setActivity(`❓ Pomóc w czymś?`);  
+      console.log(statusrand);
+    }
+    if (statusrand === 4) {
+      bot.user.setActivity(`😈 Hej, co tam?`);  
+      console.log(statusrand);
+    }
+    if (statusrand === 5) {
+      bot.user.setActivity(`Niebawem więcej!`);  
+      console.log(statusrand);
+    }
+    if (statusrand === 6) {
+      bot.user.setActivity(`Zobacz #regulamin. `); 
+      console.log(statusrand); 
+    }
+    if (statusrand === 7) {
+      bot.user.setActivity(`Rozmawiaj na #główny!`);  
+      console.log(statusrand);
+    }
+    if (statusrand === 8) {
+      bot.user.setActivity(`cc!serverinfo`);  
+      console.log(statusrand);
+    }
+
+  }, 10000);
+});
+
 bot.on("guildMemberRemove", member => {
     bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
     bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
