@@ -136,6 +136,31 @@ bot.on("message", async message => {
         .setDescription(`**Użytkownicy:** ${message.guild.memberCount} (:spy: ${member.guild.members.filter(m => !m.user.bot).size} | ${member.guild.members.filter(m => m.user.bot).size} :robot:) \n**Osoby z administracji:** ${message.guild.roles.get("457821597227679745").members.size} \n**Ilość banów:** *- Wkrótce -* \n**Admini online:** *- Wkrótce -*`)
         message.channel.send(embed);
      }
+    
+    if(cmd === `${prefix}kick`){
+        let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!kUser) return message.channel.send(":no_entry: | Musisz oznaczyć poprawnego użytkownika!");
+        let kReason = args.join(" ").slice(22);
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: You do not have permission to use this!");
+        if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: This user can not be kicked out!");
+
+        let kickEmbed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField("By:", `<@${message.author.id}>, id ${message.author.id}`)
+        .addField("Channel:", message.channel)
+        .addField("Reason:", kReason)
+        .setFooter("The user has been kicked from the server")
+        .setAuthor(`${kUser.user.tag}, ${kUser.id}`, `${kUser.user.displayAvatarURL}`);
+
+        let kickChannel = message.guild.channels.find(`name`, "modlogs");
+        if(!kickChannel) return message.channel.send(":x: Channel not found: 'modlogs'");
+
+        message.channel.send(`:heavy_check_mark: User **${kUser}** was kicked out for **${kReason}**!`);
+        message.guild.member(kUser).kick(kReason);
+        kickChannel.send(kickEmbed);
+
+        return;
+  }
                         
     if(cmd === `${prefix}bingo`){
         let y = Math.floor(Math.random() * (Math.floor(75) - Math.ceil(1) + 1)) + Math.ceil(1);
