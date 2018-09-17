@@ -141,21 +141,21 @@ bot.on("message", async message => {
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send(":no_entry: | Musisz oznaczyć poprawnego użytkownika!");
         let kReason = args.join(" ").slice(22);
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: You do not have permission to use this!");
-        if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: This user can not be kicked out!");
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: Brak uprawnien LOL!");
+        if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":lock: Ten uzytkownik nie moze byc wyrzucony!");
 
         let kickEmbed = new Discord.RichEmbed()
         .setColor("RANDOM")
-        .addField("By:", `<@${message.author.id}>, id ${message.author.id}`)
-        .addField("Channel:", message.channel)
-        .addField("Reason:", kReason)
-        .setFooter("The user has been kicked from the server")
+        .addField("Przez:", `<@${message.author.id}>, id ${message.author.id}`)
+        .addField("Kanał:", message.channel)
+        .addField("Powód:", kReason)
+        .setFooter("Użytkownik został wyrzucony!")
         .setAuthor(`${kUser.user.tag}, ${kUser.id}`, `${kUser.user.displayAvatarURL}`);
 
         let kickChannel = message.guild.channels.find(`name`, "modlogs");
-        if(!kickChannel) return message.channel.send(":x: Channel not found: 'modlogs'");
+        if(!kickChannel) return message.channel.send(":x: Brak kanału 'modlogs'");
 
-        message.channel.send(`:heavy_check_mark: User **${kUser}** was kicked out for **${kReason}**!`);
+        message.channel.send(`:heavy_check_mark: Użytkownik **${kUser}** został wyrzucony z serwera za **${kReason}**!`);
         message.guild.member(kUser).kick(kReason);
         kickChannel.send(kickEmbed);
 
