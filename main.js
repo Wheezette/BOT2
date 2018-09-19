@@ -26,7 +26,7 @@ bot.on("ready", e => {
       console.log(statusrand);
     }
     if (statusrand === 2) {
-      bot.user.setActivity(`😄 cc!help`);
+      bot.user.setActivity(`😄 cc!hilfe`);
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
@@ -404,7 +404,7 @@ bot.on("message", async message => {
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has used the **botsetavatar** command on the **${message.guild.name}**(**${message.guild.id}**) server.`);
     }
 
-    if(cmd === `${prefix}help`){
+    if(cmd === `${prefix}help` | cmd === `${prefix}hilfe`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
         const helpmsg = new Discord.RichEmbed()
         .setColor('RANDOM')
