@@ -130,6 +130,10 @@ bot.on("message", async message => {
         message.channel.send(embed);
     
     }
+    
+    if(cmd === `<@396284197389729793>`){
+        message.channel.send("**Nie pinguj xCookieTM.** Jeśli potrzebujesz pomocy pójdź do dostępnych administratorów.");
+    }
  
     if(cmd === `${prefix}staty`){
         let embed = new Discord.RichEmbed()
