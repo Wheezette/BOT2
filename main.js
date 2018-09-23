@@ -121,8 +121,9 @@ bot.on("message", async message => {
     if (message.channel.id === "492059299682451467") {
         //<message>.delete();
         const embed = new Discord.RichEmbed()
-        .setAuthor(args.join(" ").split(" | ")[0])
-        .setDescription(args.join(" ").split(" | ")[1]);
+        .setAuthor(args.join(" "))
+        .setFooter(args.join(" ").split(" | ")[0])
+        .setDescription(args.join(" ").split(" | ")[1])
         bot.channels.get('479171845317197824').send(embed)
         //bot.channels.get('479171845317197824').send(message.content.substring(0))
     }
