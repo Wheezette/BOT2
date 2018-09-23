@@ -127,6 +127,10 @@ bot.on("message", async message => {
         bot.channels.get('479171845317197824').send(embed)
         //bot.channels.get('479171845317197824').send(message.content.substring(0))
     }
+    
+    if (message.channel.id === "456841457064738826") {
+        message.channel.setTopic(`Ostatnia wiadomość napisana przez ${lastMessage.author}`);
+    }
  
     if(cmd === `${prefix}partner`){
         if (!message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send("Nie posiadasz wymaganych uprawnien!");
