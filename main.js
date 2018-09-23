@@ -130,6 +130,8 @@ bot.on("message", async message => {
     
     if (message.channel.id === "456841457064738826") {
         bot.channels.get("456841457064738826").setTopic(`Ostatnia wiadomość napisana przez ${bot.channels.get("456841457064738826").lastMessage.author}`);
+        bot.channels.get("478297357046382592").setName(`${message.guild.memberCount} 👤   |    ${message.guild.members.filter(m => m.user.bot).size} 🤖`);
+        bot.channels.get("478297464810635279").setName(`${message.guild.roles.get("457821597227679745").members.size} adminów`);
     }
  
     if(cmd === `${prefix}partner`){
@@ -196,9 +198,9 @@ bot.on("message", async message => {
     if(cmd === `${prefix}statsrefresh`){
         if (!message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'error')} Dostęp zablokowany! Nie posiadasz wymaganych uprawnień, tylko członek administracji o stanowisku ` + "`🔏Administrator` (lub wyższa) może użyć tej komendy.");
         message.channel.send(`${bot.emojis.find(`name`, 'success')} Statystyki serwera **Cookie Community** zostały zaaktualizowane!`);
-        bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
-        bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
-        bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
+        bot.channels.get("478297357046382592").setName(`${message.guild.memberCount} 👤   |    ${message.guild.members.filter(m => m.user.bot).size} 🤖`);
+        bot.channels.get("478297464810635279").setName(`${message.guild.roles.get("457821597227679745").members.size} adminów`);
+        //bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
     }
 
     if(cmd === `${prefix}kill`){
