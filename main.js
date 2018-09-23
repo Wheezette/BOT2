@@ -129,7 +129,7 @@ bot.on("message", async message => {
     }
     
     if (message.channel.id === "456841457064738826") {
-        message.channel.setTopic(`Ostatnia wiadomość napisana przez ${bot.channels.get("456841457064738826").setTopic(`Ostatnia wiadomość napisana przez ${bot.channels.get("456841457064738826").lastMessage.author}`);
+        bot.channels.get("456841457064738826").setTopic(`Ostatnia wiadomość napisana przez ${bot.channels.get("456841457064738826").lastMessage.author}`);
     }
  
     if(cmd === `${prefix}partner`){
