@@ -118,6 +118,11 @@ bot.on("message", async message => {
     let msg = message.content.startsWith;
     let args = messageArray.slice(1);
 
+    if (message.channel.id === "492059299682451467") {
+        //<message>.delete();
+        bot.channels.get('479171845317197824').send(message.content.substring(0))
+    }
+ 
     if(cmd === `${prefix}partner`){
         if (!message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send("Nie posiadasz wymaganych uprawnien!");
 
