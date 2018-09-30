@@ -117,6 +117,10 @@ bot.on("message", async message => {
     let cmd = messageArray[0];
     let msg = message.content.startsWith;
     let args = messageArray.slice(1);
+    
+    if(message.content.startsWith === "kurwa"){
+        message.channel.send("TO TY!");
+    }
 
     if (message.channel.id === "492059299682451467") {
         //<message>.delete();
