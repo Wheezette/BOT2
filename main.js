@@ -152,7 +152,7 @@ bot.on("message", async message => {
     }
     
     if(cmd === `<@396284197389729793>`){
-        message.channel.send("**Nie pinguj xCookieTM.** Jeśli potrzebujesz pomocy pójdź do dostępnych administratorów.");
+        bot.users.get(`396284197389729793`).send("**Użytkownik** " + "`" + `${message.author.tag}` + "`" + `(${message.author.id})` + " **Cię oznaczył**. Treść wiadomości to: " + `${message.content}`);
     }
  
     if(cmd === `${prefix}staty`){
