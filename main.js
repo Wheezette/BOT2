@@ -121,6 +121,15 @@ bot.on("message", async message => {
     if(message.content.startsWith === "kurwa"){
         message.channel.send("TO TY!");
     }
+    
+    if (cmd === `${prefix}part`) {
+        const embed = new Discord.RichEmbed()
+        .setAuthor("Wymagania na partnerstwo")
+        .setDescription(":success: Min. 40 użytkowników (bez botów) \n:success: Przyjazny i niekonfliktowy serwer \n:success: Moderowany serwer")
+        .addField("Zainteresowany(a)?", "Napisz do xCookieTM#9613")
+        .setFooter("Wspieramy mniejsze serwery 40+!");
+        message.channel.send(embed);
+    }
 
     if (message.channel.id === "492059299682451467") {
         //<message>.delete();
