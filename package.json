@@ -8,6 +8,9 @@
     "discord.js": "^11.4.0",
     "moment": "^2.22.2",
     "ms": "^2.1.1"
+    "quick.db": "^7.0.0-b15",
+    "quick.log": "^1.2.1",
+    "quick.log-discord": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {
