@@ -5,8 +5,6 @@ const ascii = require("ascii-art");
 const moment = require("moment");
 const fs = require("fs");
 const ms = require("ms");
-const db = require('quick.db');
-//const coins = require("./coins.json");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 //let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 //let userData = JSON.parse(fs.readFileSync('Storage/userData.json', `utf8`));
@@ -121,19 +119,6 @@ bot.on("message", async message => {
     
     if(message.content.startsWith === "kurwa"){
         message.channel.send("TO TY!");
-    }
-    
-    if (message.channel.id === "492401462756769793") { 
-        if (Date.now() < db.fetch(message.author.id)) {    
-            message.delete();
-            return message.author.send("**Wysłałeś(aś) już jedną reklamę.** \nOznacza to, że kolejną możesz wysłać, gdy minie 24h. ```~~Cookie Community```")  
-        }
-
-        db.set(message.author.id, Date.now() + 86400000)
-        //message.author.send("**Twoja reklama została wysłana!**")
-        //const embed = new Discord.RichEmbed()
-        //.setDescription(`Użytkownik ${message.author} (${message.author.id}) próbował(a) się zareklamować, ale nie minęło 24h.`)
-        //bot.channels.get("460676417064140801").send(embed);
     }
     
     if (cmd === `${prefix}part`) {
