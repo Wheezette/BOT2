@@ -5,6 +5,7 @@ const ascii = require("ascii-art");
 const moment = require("moment");
 const fs = require("fs");
 const ms = require("ms");
+const db = require('quick.db');
 //const coins = require("./coins.json");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 //let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
@@ -26,7 +27,7 @@ bot.on("ready", e => {
       console.log(statusrand);
     }
     if (statusrand === 2) {
-      bot.user.setActivity(`😄 cc!hilfe`);
+      bot.user.setActivity(`😄 cc!help`);
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
@@ -120,6 +121,19 @@ bot.on("message", async message => {
     
     if(message.content.startsWith === "kurwa"){
         message.channel.send("TO TY!");
+    }
+    
+    if (message.channel.id === "492401462756769793") { 
+        if (Date.now() < db.fetch(message.author.id)) {    
+            message.delete();
+            return message.author.send("**Wysłałeś(aś) już jedną reklamę.** \nOznacza to, że kolejną możesz wysłać, gdy minie 24h. ```~~Cookie Community```")  
+        }
+
+        db.set(message.author.id, Date.now() + 86400000)
+        //message.author.send("**Twoja reklama została wysłana!**")
+        //const embed = new Discord.RichEmbed()
+        //.setDescription(`Użytkownik ${message.author} (${message.author.id}) próbował(a) się zareklamować, ale nie minęło 24h.`)
+        //bot.channels.get("460676417064140801").send(embed);
     }
     
     if (cmd === `${prefix}part`) {
@@ -292,7 +306,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `<@456018252158730250>`){
-        message.channel.send(`${bot.emojis.find(`name`, 'question')} Was? Mein Präfix ist: ` + "`" + `${prefix}` + "`");
+        message.channel.send(`${bot.emojis.find(`name`, 'question')} Potrzebujesz pomocy? Prefix to: ` + "`" + `${prefix}` + "`");
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has mention the bot on the **${message.guild.name}**(**${message.guild.id}**) server.`);
     }
