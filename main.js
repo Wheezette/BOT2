@@ -290,11 +290,11 @@ bot.on("message", async message => {
         message.channel.send(sayMessage);
     }
 
-    if(cmd === `<@456018252158730250>`){
-        message.channel.send(`${bot.emojis.find(`name`, 'question')} Potrzebujesz pomocy? Prefix to: ` + "`" + `${prefix}` + "`");
+   // if(cmd === `<@456018252158730250>`){
+       // message.channel.send(`${bot.emojis.find(`name`, 'question')} Potrzebujesz pomocy? Prefix to: ` + "`" + `${prefix}` + "`");
         //let cmdlogs = message.guild.channels.find(`id`, "471972734851612672");
         //cmdlogs.send(`${bot.emojis.find(`name`, 'alert')} The **${message.author.tag}**(**${message.author.id}**) user has mention the bot on the **${message.guild.name}**(**${message.guild.id}**) server.`);
-    }
+    //}
 
     if(cmd === `${prefix}ascii`){
         if(konfiguracja.commands === "disabled") return message.channel.send(`${bot.emojis.find(`name`, 'error')} All commands in the bot have been disabled!`);
