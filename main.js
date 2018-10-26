@@ -20,42 +20,42 @@ bot.on("ready", e => {
   setInterval (function (){
     var statusrand  = Math.floor(Math.random() * 8 + 1);
     if (statusrand === 1) {
-      bot.user.setActivity(`Cookie Community`);   
+      bot.user.setActivity(`CC-BOT w pracach!`);   
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 2) {
-      bot.user.setActivity(`😄 cc!help`);
+      bot.user.setActivity(`Ten bot jest zamknięty!`);
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 3) {
-      bot.user.setActivity(`❓ Pomóc w czymś?`);  
+      bot.user.setActivity(`Niebawem lepsze funkcje!`);  
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 4) {
-      bot.user.setActivity(`😈 Hej, co tam?`);  
+      bot.user.setActivity(`Niebawem nowa wersja 3.0 (beta)!`);  
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 5) {
-      bot.user.setActivity(`Niebawem więcej!`);  
+      bot.user.setActivity(`CC-BOT w pracach!`);  
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 6) {
-      bot.user.setActivity(`Zobacz #regulamin. `); 
+      bot.user.setActivity(`Ten bot jest zamknięty.`); 
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand); 
     }
     if (statusrand === 7) {
-      bot.user.setActivity(`Rozmawiaj na #główny!`);  
+      bot.user.setActivity(`Niebawem lepsze funkcje!`);  
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
     if (statusrand === 8) {
-      bot.user.setActivity(`cc!serverinfo`);  
+      bot.user.setActivity(`Trwa renowacja bota.`);  
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
       console.log(statusrand);
     }
@@ -105,7 +105,7 @@ bot.on("message", async message => {
             suggestChannels: konfiguracja.defaultSuggestChannel
         };
     }
-
+    let bprefix = "cc!";
     let lang = language[message.guild.id].language;
 
     let suggestChannel = suggestChannels[message.guild.id].suggestChannels;
@@ -159,9 +159,9 @@ bot.on("message", async message => {
     
     }
     
-    if(cmd === `<@396284197389729793>`){
-        bot.users.get(`396284197389729793`).send("**Użytkownik** " + "`" + `${message.author.tag}` + "`" + `(${message.author.id})` + " **Cię oznaczył**. Treść wiadomości to: " + `${message.content}`);
-    }
+    //if(cmd === `<@396284197389729793>`){
+        //bot.users.get(`396284197389729793`).send("**Użytkownik** " + "`" + `${message.author.tag}` + "`" + `(${message.author.id})` + " **Cię oznaczył**. Treść wiadomości to: " + `${message.content}`);
+    //}
  
     if(cmd === `${prefix}staty`){
         let embed = new Discord.RichEmbed()
@@ -460,6 +460,10 @@ bot.on("message", async message => {
         if(args[0] == 'choose') return message.channel.send('Help with the **CHOOSE** command. \n```Usage: ' + `${prefix}choose <text1>;<text2>` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
         if(args[0] == 'avatar') return message.channel.send('Help with the **AVATAR** command. \n```Usage: ' + `${prefix}avatar [<@user>]` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
         if(args[0] == 'hug') return message.channel.send('Help with the **HUG** command. \n```Usage: ' + `${prefix}hug <@user>` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
+    }
+    
+    if(cmd === `${bprefix}help`){
+        message.channel.send("**CC-BOT** jest niedostępny. Trwają prace nad nim. Już niebawem: *Nowa wersja bota*, *nowe funkcje* i *lepsze komendy*.");
     }
 
     if(cmd === `${prefix}news`){
