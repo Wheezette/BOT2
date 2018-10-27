@@ -130,9 +130,10 @@ bot.on("ready", e => {
 });
 
 bot.on("guildMemberRemove", member => {
-    bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
-    bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
-    bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
+    const embed = new Discord.RichEmbed()
+    .setAuthor("Żegnamy.....")
+    .setDescription(`Żegnaj ${member.tag}...\nPrzykro nam, że już odchodzisz\nPowodzenia gdzie indziej... :cry:\n \n**Pozostało nas ${bot.guilds.get("454946768723902476").memberCount}**.`)
+    bot.channels.get("505834357198684180").send(embed);
 });
 
 bot.on("guildMemberAdd", member => {
