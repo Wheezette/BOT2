@@ -132,7 +132,7 @@ bot.on("ready", e => {
 bot.on("guildMemberRemove", member => {
     const embed = new Discord.RichEmbed()
     .setAuthor("Żegnamy.....")
-    .setDescription(`Żegnaj ${member.tag}...\nPrzykro nam, że już odchodzisz\nPowodzenia gdzie indziej... :cry:\n \n**Pozostało nas ${bot.guilds.get("454946768723902476").memberCount}**.`)
+    .setDescription(`Żegnaj ${member}...\nPrzykro nam, że już odchodzisz\nPowodzenia gdzie indziej... :cry:\n \n**Pozostało nas ${bot.guilds.get("454946768723902476").memberCount}**.`)
     bot.channels.get("505834357198684180").send(embed);
 });
 
