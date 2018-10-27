@@ -63,6 +63,53 @@ bot.on("ready", e => {
   }, 10000);
 });
 
+bot.on("ready", e => {
+  setInterval (function (){
+    var statusrand  = Math.floor(Math.random() * 8 + 1);
+    if (statusrand === 1) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test1'});   
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 2) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test2'});
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 3) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test3'}); 
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 4) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test4'});
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 5) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test5'});  
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 6) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test6'});
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand); 
+    }
+    if (statusrand === 7) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test7'});  
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+    if (statusrand === 8) {
+      bot.channels.get("505809906033754150").edit({ name: 'Test8'}); 
+      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
+      console.log(statusrand);
+    }
+
+  }, 10000);
+});
+
 bot.on("guildMemberRemove", member => {
     bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
     bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
@@ -75,6 +122,8 @@ bot.on("guildMemberAdd", member => {
     bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
     bot.channels.get("486071421039280129").setName(`✸ ${member.user.tag}`);
 });
+
+460675914603429899
 
 bot.on("message", async message => {
 
