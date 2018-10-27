@@ -65,7 +65,7 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
-    var statusrand  = Math.floor(Math.random() * 8 + 1);
+    var statusrand  = Math.floor(8 + 1);
     if (statusrand === 1) {
       bot.channels.get("505809906033754150").edit({ name: 'Test1'});   
       //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
