@@ -102,6 +102,23 @@ bot.on("ready", e => {
   }, 7000);
 });
 
+bot.on("ready", e => {
+  setInterval (function (){
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);    
+    
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`); 
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);  
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+
+  }, 7000);
+});
+
 bot.on("guildMemberRemove", member => {
     bot.channels.get("478297357046382592").setName(`✸ Użytkownicy: ${message.guild.memberCount}`);
     bot.channels.get("478297464810635279").setName(`✸ Botów: ${message.guild.members.filter(m => m.user.bot).size}`);
