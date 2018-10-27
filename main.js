@@ -138,7 +138,7 @@ bot.on("guildMemberRemove", member => {
 bot.on("guildMemberAdd", member => {
     const embed = new Discord.RichEmbed()
     .setAuthor("Witamy na Cookie Community")
-    .setDescription(`Joł ${member}...\nWitaj na naszym serwerze!\nPozostań na dłużej a nie pożałujesz... :wink:\n \n**Jest nas teraz ${bot.guilds.get("454946768723902476").memberCount}`)
+    .setDescription(`Joł ${member}...\nWitaj na naszym serwerze!\nPozostań na dłużej a nie pożałujesz... :wink:\n \n**Jest nas teraz ${bot.guilds.get("454946768723902476").memberCount}**.`)
     bot.channels.get("505834357198684180").send(embed);
 });
 
