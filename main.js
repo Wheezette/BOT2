@@ -135,7 +135,7 @@ bot.on("ready", e => {
       
     bot.channels.get("505848371827703809").send("msg2");
 
-  }, 1 * 1000);
+  }, 99000);
 });
 
 bot.on("guildMemberRemove", member => {
