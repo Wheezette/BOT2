@@ -65,23 +65,41 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
-    bot.channels.get("505809906033754150").edit({ name: 'Test1'});   
+    bot.channels.get("505809906033754150").edit({ name: 'W'});   
     
-    bot.channels.get("505809906033754150").edit({ name: 'Test2'});
+    bot.channels.get("505809906033754150").edit({ name: 'Wi'});
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test3'}); 
+    bot.channels.get("505809906033754150").edit({ name: 'Wit'}); 
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test4'});
+    bot.channels.get("505809906033754150").edit({ name: 'Wita'});
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test5'});  
+    bot.channels.get("505809906033754150").edit({ name: 'Witam'});  
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test6'});
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy'});
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test7'});  
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy n'});  
 
-    bot.channels.get("505809906033754150").edit({ name: 'Test8'}); 
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na'}); 
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na s'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na se'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na ser'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serw'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwe'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwer'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerz'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerze'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerze!'});
 
-  }, 1000);
+  }, 7000);
 });
 
 bot.on("guildMemberRemove", member => {
