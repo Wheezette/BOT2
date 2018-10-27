@@ -129,6 +129,23 @@ bot.on("ready", e => {
   }, 7000);
 });
 
+bot.on("ready", e => {
+  setInterval (function (){
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa'});    
+    
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admina'});
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Admin'}); 
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Admin Zone'});
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Narzędzia'});  
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Narzędzia Admina'});
+
+  }, 7000);
+});
+
 bot.on("guildMemberRemove", member => {
     const embed = new Discord.RichEmbed()
     .setAuthor("Żegnamy.....")
