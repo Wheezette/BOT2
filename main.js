@@ -65,49 +65,23 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
-    var statusrand  = Math.floor(8 + 1);
-    if (statusrand === 1) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test1'});   
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 2) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test2'});
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 3) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test3'}); 
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 4) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test4'});
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 5) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test5'});  
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 6) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test6'});
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand); 
-    }
-    if (statusrand === 7) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test7'});  
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
-    if (statusrand === 8) {
-      bot.channels.get("505809906033754150").edit({ name: 'Test8'}); 
-      //bot.channels.get("490431842424717322").setName(moment.utc(message.createdAt).format('HH:mm:ss'));
-      console.log(statusrand);
-    }
+    bot.channels.get("505809906033754150").edit({ name: 'Test1'});   
+    
+    bot.channels.get("505809906033754150").edit({ name: 'Test2'});
 
-  }, 10000);
+    bot.channels.get("505809906033754150").edit({ name: 'Test3'}); 
+
+    bot.channels.get("505809906033754150").edit({ name: 'Test4'});
+
+    bot.channels.get("505809906033754150").edit({ name: 'Test5'});  
+
+    bot.channels.get("505809906033754150").edit({ name: 'Test6'});
+
+    bot.channels.get("505809906033754150").edit({ name: 'Test7'});  
+
+    bot.channels.get("505809906033754150").edit({ name: 'Test8'}); 
+
+  }, 1000);
 });
 
 bot.on("guildMemberRemove", member => {
