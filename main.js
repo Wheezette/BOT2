@@ -110,7 +110,7 @@ bot.on("ready", e => {
 
     bot.channels.get("505829821482532871").setName(`${bot.guilds.get("454946768723902476").roles.get("457821597227679745").members.size} adminów`); 
 
-    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+    bot.channels.get("505831581571612693").setName(`${moment(this.date).format('DD.MM.YYYY')}`);
 
     bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);  
 
