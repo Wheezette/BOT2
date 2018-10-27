@@ -125,7 +125,12 @@ bot.on("ready", e => {
     bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);  
 
     bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
-      
+
+  }, 7000);
+});
+
+bot.on("ready", e => {
+  setInterval (function (){
     bot.channels.get("505836060799008768").edit({ name: '🔔 Wszystko Inne'});
       
     bot.channels.get("505836060799008768").edit({ name: '🔔 Zabawa - Fun'});
@@ -145,8 +150,6 @@ bot.on("guildMemberAdd", member => {
     bot.channels.get("477767735322083328").setName(`✸ Admini: ${message.guild.roles.get("457821597227679745").members.size}`);
     bot.channels.get("486071421039280129").setName(`✸ ${member.user.tag}`);
 });
-
-460675914603429899
 
 bot.on("message", async message => {
 
