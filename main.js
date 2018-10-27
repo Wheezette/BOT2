@@ -99,15 +99,15 @@ bot.on("ready", e => {
       
     bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerze!'});
       
-    bot.channels.get("505809906033754150").edit({ name: 'To już V edycja!'});
+    bot.channels.get("505809906033754150").edit({ name: 'To'});
+      
+    bot.channels.get("505809906033754150").edit({ name: ' To już'});
+      
+    bot.channels.get("505809906033754150").edit({ name: '  To już V'});
       
     bot.channels.get("505809906033754150").edit({ name: ' To już V edycja!'});
       
-    bot.channels.get("505809906033754150").edit({ name: '  To już V edycja!'});
-      
-    bot.channels.get("505809906033754150").edit({ name: ' To już V edycja!'});
-      
-    bot.channels.get("505809906033754150").edit({ name: 'To już V edycja!'});
+    //bot.channels.get("505809906033754150").edit({ name: 'To już V edycja!'});
 
   }, 7000);
 });
@@ -125,6 +125,10 @@ bot.on("ready", e => {
     bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);  
 
     bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+      
+    bot.channels.get("505836060799008768").edit({ name: '🔔 Wszystko Inne'});
+      
+    bot.channels.get("505836060799008768").edit({ name: '🔔 Zabawa - Fun'});
 
   }, 7000);
 });
