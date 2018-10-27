@@ -98,6 +98,16 @@ bot.on("ready", e => {
     bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerze'});
       
     bot.channels.get("505809906033754150").edit({ name: 'Witamy na serwerze!'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'To już V edycja!'});
+      
+    bot.channels.get("505809906033754150").edit({ name: ' To już V edycja!'});
+      
+    bot.channels.get("505809906033754150").edit({ name: '  To już V edycja!'});
+      
+    bot.channels.get("505809906033754150").edit({ name: ' To już V edycja!'});
+      
+    bot.channels.get("505809906033754150").edit({ name: 'To już V edycja!'});
 
   }, 7000);
 });
