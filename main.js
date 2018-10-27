@@ -215,10 +215,10 @@ bot.on("message", async message => {
         //bot.channels.get('479171845317197824').send(message.content.substring(0))
     }
     
-    if (message.channel.id === "456841457064738826") {
-        bot.channels.get("456841457064738826").setTopic(`Ostatnia wiadomość napisana przez ${bot.channels.get("456841457064738826").lastMessage.author}`);
-        bot.channels.get("478297357046382592").setName(`${message.guild.memberCount} 👤   |    ${message.guild.members.filter(m => m.user.bot).size} 🤖`);
-        bot.channels.get("478297464810635279").setName(`${message.guild.roles.get("457821597227679745").members.size} adminów`);
+    if (message.channel.id === "505848371827703809") {
+        bot.channels.get("456841457064738826").setTopic(`**WITAMY NA KANALE GłóWNYM**\nOstatnią wiadomość napisał(a): ${bot.channels.get("456841457064738826").lastMessage.author}\nAuto-Msg: ON (co 1h)\n*Miłych konwersacji....*`);
+        //bot.channels.get("478297357046382592").setName(`${message.guild.memberCount} 👤   |    ${message.guild.members.filter(m => m.user.bot).size} 🤖`);
+        //bot.channels.get("478297464810635279").setName(`${message.guild.roles.get("457821597227679745").members.size} adminów`);
     }
  
     if(cmd === `${prefix}partner`){
