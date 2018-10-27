@@ -131,11 +131,11 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
-    bot.channels.get("505836060799008768").edit({ name: '🔔 Wszystko Inne'});
+    bot.channels.get("505848371827703809").send("msg1");
       
-    bot.channels.get("505836060799008768").edit({ name: '🔔 Zabawa - Fun'});
+    bot.channels.get("505848371827703809").send("msg2");
 
-  }, 7000);
+  }, 1 * 1000);
 });
 
 bot.on("guildMemberRemove", member => {
