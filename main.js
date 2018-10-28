@@ -145,35 +145,36 @@ bot.on("ready", e => {
 
   }, 7000);
 });
-bot.on("ready", e => {
+bot.on("ready", async e => {
+    let mess = await bot.channels.get("456841457064738826").send("Test0"); 
   setInterval (function (){
-    bot.channels.get("506180534066479134").setName(`E`);    
+    //let mess = await bot.channels.get("456841457064738826").send("Test0");    
     
-    bot.channels.get("506180534066479134").setName(`El`);
+    mess.edit("kslakasl");
 
-    bot.channels.get("506180534066479134").setName(`Elo`); 
+    mess.edit("sdsdss"); 
 
-    bot.channels.get("506180534066479134").setName(`Elo m`);
+    mess.edit("sldslkdsksdklsd");
 
-    bot.channels.get("506180534066479134").setName(`Elo me`);  
+    mess.edit("loloololo");  
 
-    bot.channels.get("506180534066479134").setName(`Elo mel`);
+    mess.edit("kskjdnsmxskjdksds");
       
-    bot.channels.get("506180534066479134").setName(`Elo melo`);
+    mess.edit("asjasajkskasaSMSDJIWW");
       
-    bot.channels.get("506180534066479134").setName(`E`);
+    mess.edit("asajsalxsamka");
       
-    bot.channels.get("506180534066479134").setName(`El`);
+    mess.edit("alelskellselle");
       
-    bot.channels.get("506180534066479134").setName(`Elo`);
+    mess.edit("yyyyuyeusuesie");
       
-    bot.channels.get("506180534066479134").setName(`Elo m`);
+    mess.edit("xyz2");
     
-    bot.channels.get("506180534066479134").setName(`Elo me`);
+    mess.edit("dekeekeke");
       
-    bot.channels.get("506180534066479134").setName(`Elo mel`);
+    mess.edit("hello gu");
       
-    bot.channels.get("506180534066479134").setName(`Elo melo`);
+    mess.edit("yooop");
 
   }, 7000);
 });
