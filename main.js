@@ -160,6 +160,20 @@ bot.on("ready", e => {
     bot.channels.get("506180534066479134").setName(`Elo mel`);
       
     bot.channels.get("506180534066479134").setName(`Elo melo`);
+      
+    bot.channels.get("506180534066479134").setName(`E`);
+      
+    bot.channels.get("506180534066479134").setName(`El`);
+      
+    bot.channels.get("506180534066479134").setName(`Elo`);
+      
+    bot.channels.get("506180534066479134").setName(`Elo m`);
+    
+    bot.channels.get("506180534066479134").setName(`Elo me`);
+      
+    bot.channels.get("506180534066479134").setName(`Elo mel`);
+      
+    bot.channels.get("506180534066479134").setName(`Elo melo`);
 
   }, 7000);
 });
