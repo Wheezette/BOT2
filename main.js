@@ -131,6 +131,41 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);    
+    
+    bot.channels.get("505827628603801611").setName(`${bot.guilds.get("454946768723902476").roles.get("457106935720706048").members.size} partnerów`);
+
+    bot.channels.get("505829821482532871").setName(`${bot.guilds.get("454946768723902476").roles.get("457821597227679745").members.size} adminów`); 
+
+    bot.channels.get("505831581571612693").setName(`${moment(this.date).format('DD.MM.YYYY')}`);
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);  
+
+    bot.channels.get("505824891384365056").setName(`${bot.guilds.get("454946768723902476").memberCount}os / 1000os`);
+
+  }, 7000);
+});
+bot.on("ready", e => {
+  setInterval (function (){
+    bot.channels.get("506180534066479134").setName(`E`);    
+    
+    bot.channels.get("506180534066479134").setName(`El`);
+
+    bot.channels.get("506180534066479134").setName(`Elo`); 
+
+    bot.channels.get("506180534066479134").setName(`Elo m`);
+
+    bot.channels.get("506180534066479134").setName(`Elo me`);  
+
+    bot.channels.get("506180534066479134").setName(`Elo mel`);
+      
+    bot.channels.get("506180534066479134").setName(`Elo melo`);
+
+  }, 7000);
+});
+
+bot.on("ready", e => {
+  setInterval (function (){
     bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');   
     
     bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
