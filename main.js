@@ -164,17 +164,29 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
-    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa'});    
+    bot.channels.get("505866770880397352").edit({ name: '🔐 St'});    
     
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Stre'});
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa'});
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Ad'});
+
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admi'});  
+
     bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admina'});
-
-    bot.channels.get("505866770880397352").edit({ name: '🔐 Admin'}); 
-
-    bot.channels.get("505866770880397352").edit({ name: '🔐 Admin Zone'});
-
-    bot.channels.get("505866770880397352").edit({ name: '🔐 Narzędzia'});  
-
-    bot.channels.get("505866770880397352").edit({ name: '🔐 Narzędzia Admina'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 St'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Stre'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Ad'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admi'});
+      
+    bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admina'});
 
   }, 10000);
 });
