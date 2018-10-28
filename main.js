@@ -131,6 +131,39 @@ bot.on("ready", e => {
 
 bot.on("ready", e => {
   setInterval (function (){
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');   
+    
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie'); 
+
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');  
+
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie');
+      
+    bot.guilds.get("454946768723902476").member("456018252158730250").setNickname('Cookie Community');
+
+  }, 7000);
+});
+
+bot.on("ready", e => {
+  setInterval (function (){
     bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa'});    
     
     bot.channels.get("505866770880397352").edit({ name: '🔐 Strefa Admina'});
