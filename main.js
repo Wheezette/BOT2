@@ -675,14 +675,14 @@ bot.on("message", async message => {
     ///}
     
     if(cmd === `${prefix}upr`){
-        if (message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Właściciel`.");
-        if (message.member.roles.find(r => r.id === "455430899861815296")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Starszy Administrator`.");
-        if (message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Administrator`.");
-        if (message.member.roles.find(r => r.id === "456851799861624835")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Administrator`.");
-        if (message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Moderator`.");
-        if (message.member.roles.find(r => r.id === "457105125886918667")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Owww! Jesteś w administracji, twoja posada to: `Młodszy Moderator`.");
+        if (message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Właściciel`.");
+        if (message.member.roles.find(r => r.id === "455430899861815296")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Starszy Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851721570746370")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851799861624835")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Młodszy Administrator`.");
+        if (message.member.roles.find(r => r.id === "456851627740102657")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Moderator`.");
+        if (message.member.roles.find(r => r.id === "457105125886918667")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Młodszy Moderator`.");
         
-        if (message.member.roles.find(r => r.id === "456849366515187742")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień na serwerze to: `Ciastko - Cookie Community`.");
+        if (message.member.roles.find(r => r.id === "456849366515187742")) return message.channel.send(`${bot.emojis.find(`name`, 'pass')}` + " Twój poziom uprawnień: `Społeczność`.");
         if (message.member.roles.find(r => r.id === "454946768723902476")) return message.channel.send(`${bot.emojis.find(`name`, 'alert')} Wygląda na to, że nie posiadasz żadnej roli. Zgłoś się jak najszybciej do administratora.`)
     }
 
