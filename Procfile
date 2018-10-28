@@ -1,1 +1,1 @@
-worker: npm i quick.db
+worker: node main.js
