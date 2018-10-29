@@ -636,8 +636,9 @@ bot.on("message", async message => {
         .addField('Zabawa (6):', '`ascii`, `reverse`, `choose`, `avatar`, `hug`, `8ball`, `wheel`')
         .addField('Administracyjne (9):', '`ban`, ~~`kick`~~, `votekick`, `survey`, `addrole`, `removerole`, `channel`, `setprefix`, `setSuggestChannel`, `clear`')
         .addField('Zdjęcia (1):', '`cat`')
-        .addField('Informacje (2):', '`serverinfo`, `userinfo`')
-        .addField('Inne (1):', '`suggest`')
+        .addField('**NOWE!** | Informacje (3):', '`serverinfo` - informacje o serwerze,\n`userinfo` - informacje o danym użytkowniku\n**NOWE!** `botinfo` - informacje o oznaczonym bocie znajdującym się na serwerze.')
+        .addField('**NOWE!** | Inne (2):', '`propozycja` - wysyła propozycję dot. serwera\n`rekutacja <open/close>` - otwiera rekrutację na serwerze')
+        .addField('**NOWE!** | Sklep (2):', '`sklep voucher <kod>` - wpisuje voucher na jakąś rangę/item\n`sklep <kup> <legenda/gigant>` - kupuje wybraną rangę vip\n`sklep lista` - lista itemów w sklepie')
         .setFooter(`${moment(message.createdAt).format('HH:mm:ss')} | Użyto przez ${message.author.tag}.`)
         if(!args[0]) return message.channel.send(helpmsg);
         if(args[0] == 'invite') return message.channel.send('Help with the **INVITE** command. \n```Usage: ' + `${prefix}invite` + '``` \n**Aliases:** None \n**Description:** After entering this command you will see a link to the help server with the bot and a link to invite it to your server!');
