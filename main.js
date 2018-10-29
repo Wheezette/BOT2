@@ -324,6 +324,17 @@ bot.on("message", async message => {
         //bot.channels.get("478297357046382592").setName(`${message.guild.memberCount} 👤   |    ${message.guild.members.filter(m => m.user.bot).size} 🤖`);
         //bot.channels.get("478297464810635279").setName(`${message.guild.roles.get("457821597227679745").members.size} adminów`);
     }
+    
+    if(cmd === `${prefix}botinfo`){
+        const rc = new Discord.RichEmbed()
+        .setAuthor("Informacje o bocie")
+        .addField("Nazwa i tag:", "Rythm Canary#8406")
+        .addField("Id bota:", "415062217596076033")
+        .addField("Prefix:", "`*` - defaultowy i na serwerze")
+        .addField("Opis:", "Rythm to bot muzyczny Discord skupiony na jednym celu\n- aby zapewnić najlepszą jakość muzyki na Discord.\nOferuje więcej funkcji niż jakikolwiek inny bot Discord przeznaczony do tego celu\n- dostarczanie wysokiej jakości muzyki z wielu źródeł.\n \nRythm jest zawsze aktualizowany i opracowywany, aby zapewnić Ci jeszcze lepszą jakość i spełnić Twoje potrzeby!")
+        .addField("Twórcy:", "*ta opcja wkrótce*");
+        if(args[0] == "<@415062217596076033>") return message.channel.send(rc);
+    }
  
     if(cmd === `${prefix}partner`){
         if (!message.member.roles.find(r => r.id === "455426439433551883")) return message.channel.send("Nie posiadasz wymaganych uprawnien!");
