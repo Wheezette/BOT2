@@ -145,39 +145,6 @@ bot.on("ready", e => {
 
   }, 7000);
 });
-bot.on("ready", async e => {
-    let mess = await bot.channels.get("456841457064738826").send("Test0"); 
-  setInterval (function (){
-    //let mess = await bot.channels.get("456841457064738826").send("Test0");    
-    
-    mess.edit("kslakasl");
-
-    mess.edit("sdsdss"); 
-
-    mess.edit("sldslkdsksdklsd");
-
-    mess.edit("loloololo");  
-
-    mess.edit("kskjdnsmxskjdksds");
-      
-    mess.edit("asjasajkskasaSMSDJIWW");
-      
-    mess.edit("asajsalxsamka");
-      
-    mess.edit("alelskellselle");
-      
-    mess.edit("yyyyuyeusuesie");
-      
-    mess.edit("xyz2");
-    
-    mess.edit("dekeekeke");
-      
-    mess.edit("hello gu");
-      
-    mess.edit("yooop");
-
-  }, 7000);
-});
 
 bot.on("ready", e => {
   setInterval (function (){
